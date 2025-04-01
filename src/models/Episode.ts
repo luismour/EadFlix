@@ -1,19 +1,20 @@
-import exp from "constants"
+// src/models/Episode.ts
+
 import { sequelize } from '../database'
 import { DataTypes, Model, Optional } from 'sequelize'
 
-
 export interface Episode {
-    id: number
-    name: string
-    synopsis: string
-    order: number
-    videoUrl: string
-    secondsLong: number
-    courseId: number
+  id: number
+  name: string
+  synopsis: string
+  order: number
+  videoUrl: string
+  secondsLong: number
+  courseId: number
 }
 
-export interface EpisodeCreationAttributes extends Optional<Episode, 'id' | 'videoUrl' | 'secondsLong' > {}
+export interface EpisodeCreationAttributes
+  extends Optional<Episode, 'id' | 'videoUrl' | 'secondsLong' > {}
 
 export interface EpisodeInstance
   extends Model<Episode, EpisodeCreationAttributes>, Episode {}
