@@ -5,6 +5,7 @@ import { sequelize } from "../database"
 import { adminJsResources } from "./resources"
 import { User } from "../models"
 import bcrypt from 'bcrypt'
+import { locale } from "./locale"
 require('dotenv').config()
 
 AdminJS.registerAdapter(AdminJSSequelize)
@@ -13,6 +14,7 @@ export const adminJs = new AdminJS({
     databases: [sequelize],
     resources: adminJsResources,
     rootPath: "/admin",
+    locale: locale,
     branding: {
         companyName: 'OneBitFlix',
         logo: '/logoOnebitflix.svg',
