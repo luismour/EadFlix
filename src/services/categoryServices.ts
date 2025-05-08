@@ -47,5 +47,6 @@ export const categoryService = {
                 throw new Error(error.message)
             }
         }
-    }
+    },
+    
 }
