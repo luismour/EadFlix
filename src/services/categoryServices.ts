@@ -22,5 +22,35 @@ export const categoryService = {
                 throw new Error(error.message)
             }
         }
-    }
+    },
+    findByIdWithCourses: async (id: string) => {
+        try {
+            const categoryWithCourses = await Category.findByPk(id, {
+                attributes: ['id', 'name'],
+                include: [
+                    {
+                        association: 'courses',
+                        attributes: [
+                            'id', 
+                            'name',
+                            'synopsis',
+                            'thumbnail_url', 'thumbnailUrl',
+                        ],
+                    },
+                ],
+            })
+
+            return categoryWithCourses
+
+            if (!categoryWithCourses) {
+                throw new Error('Category not found')
+            }
+
+            return categoryWithCourses
+        } catch (error) {
+            if (error instanceof Error) {
+                throw new Error(error.message)
+            }
+        }
+    },
 }
