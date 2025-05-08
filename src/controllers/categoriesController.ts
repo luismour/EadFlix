@@ -20,7 +20,7 @@ export const categoriesController = {
     },
 
     // GET /categories/:id
-    show: async (req: Request, res: Response) => {
+     show: async (req: Request, res: Response) => {
         const { id } = req.params
 
         try {
@@ -32,5 +32,6 @@ export const categoriesController = {
                 return res.status(400).json({ message: error.message })
             }
         }
+
     },
 }
